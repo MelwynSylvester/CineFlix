@@ -1,0 +1,81 @@
+@model CineFlix.Models.User
+
+@{
+    ViewData["Title"] = "EditUserDetails";
+    Layout = "_LayoutCustomer";
+}
+
+<h2 class="text-center">Edit User Details</h1>
+
+<hr />
+                @{
+                    if(ViewBag.SuccessMessage != null)
+                    {
+                    <div class="alert alert-success text-center col-md-12">
+                         @ViewBag.SuccessMessage
+                     </div>
+                    }
+                }
+
+                @{
+                    if(ViewBag.ErrorMessage != null)
+                    {
+                    <div class="alert alert-danger text-center col-md-12">
+                        @ViewBag.ErrorMessage
+                    </div>
+                    }
+                }
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditUserDetails">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="FirstName" class="control-label"></label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastName" class="control-label"></label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhoneNumber" class="control-label"></label>
+                <input asp-for="PhoneNumber" class="form-control" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmailId" class="control-label"></label>
+                <input asp-for="EmailId" class="form-control" disabled/>
+                <span asp-validation-for="EmailId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserPassword" class="control-label"></label>
+                <input type="password" asp-for="UserPassword" class="form-control" />
+                <span asp-validation-for="UserPassword" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PlanType" class="control-label"></label>
+                <input asp-for="PlanType" class="form-control"/>
+                <span asp-validation-for="PlanType" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <input type="submit" value="Save" class="btn btn-primary" />
+
+               @Html.ActionLink("Delete User Account", "DeleteUserAccount", new { id=User })
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+<div>
+    <a asp-action="CustomerHome" asp-controller="Customer">Back to Home</a>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,20 @@
+table{
+    width: 100%;
+}
+
+tbody>tr {
+    border: 1px solid rgba(0, 0, 0, 0.175) !important;
+    border-radius: 0.375rem !important;
+}
+
+tbody>tr td, thead>tr td{
+    padding: 1rem 0.5rem 1rem 0.5rem;
+}
+
+.card{
+    transition: all 0.3s;
+}
+
+.card:hover{
+    transform: scale(1.15);
+}

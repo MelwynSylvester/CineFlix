@@ -1,0 +1,69 @@
+@model CineFlix.Models.Movie
+
+@{
+    ViewData["Title"] = "AddMovieDetails";
+    Layout = "_LayoutAdmin";
+}
+
+<h1>Add Movie Details</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddMovieDetails">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="UserId" class="control-label"></label>
+                <input asp-for="UserId" class="form-control" required/>
+                <span asp-validation-for="UserId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MovieName" class="control-label">Movie Name</label>
+                <input asp-for="MovieName" class="form-control" required/>
+                <span asp-validation-for="MovieName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MovieDesc" class="control-label">Movie Description</label>
+                <input asp-for="MovieDesc" class="form-control" required/>
+                <span asp-validation-for="MovieDesc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Genres" class="control-label">Genres</label>
+                <input asp-for="Genres" class="form-control" required/>
+                <span asp-validation-for="Genres" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImageUrl" class="control-label">Image Url</label>
+                <input asp-for="ImageUrl" class="form-control" required/>
+                <span asp-validation-for="ImageUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VideoUrl" class="control-label">Video Url</label>
+                <input asp-for="VideoUrl" class="form-control" required/>
+                <span asp-validation-for="VideoUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MovieLanguage" class="control-label">Movie Language</label>
+                <input asp-for="MovieLanguage" class="form-control" required/>
+                <span asp-validation-for="MovieLanguage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Duration" class="control-label">Duration</label>
+                <input asp-for="Duration" class="form-control" required/>
+                <span asp-validation-for="Duration" class="text-danger"></span>
+            </div>
+            <br>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<br>
+<div>
+    <a asp-action="Movies" asp-controller="Admin">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,19 @@
+﻿@{
+    
+    var controller =  ViewContext.RouteData.Values["controller"].ToString();  
+    string layout = "";  
+    if (controller=="Home" || controller=="Login" || controller=="Register")  
+    {  
+        layout = "_Layout";         
+    }  
+    else if(controller=="Customer")
+    {  
+        layout = "_LayoutCustomer";  
+    } 
+    else
+    {
+        layout = "_LayoutAdmin";
+    } 
+    Layout = layout; 
+    //Layout = "_Layout";
+}

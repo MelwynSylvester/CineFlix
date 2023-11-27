@@ -1,0 +1,54 @@
+@model IEnumerable<CineFlix.Models.Tvshow>
+
+@{
+    ViewData["Title"] = "TvShows";
+    Layout = "_LayoutAdmin";
+}
+
+<h2 class="text-center">Tv Shows</h2>
+
+<p>
+    <a asp-action="AddTvShowDetails" asp-controller="Admin">Create New</a>
+</p>
+
+        @{
+            if(ViewBag.SuccessMessage != null)
+                {
+                    <div class="alert alert-success text-center col-md-12">
+                         @ViewBag.SuccessMessage
+                     </div>
+                }
+        }
+ 
+        @{
+            if(ViewBag.ErrorMessage != null)
+                {
+                    <div class="alert alert-danger text-center col-md-12">
+                        @ViewBag.ErrorMessage
+                    </div>
+                }
+        }
+
+<div class="row mb-3">
+    @foreach(var item in Model){
+        <div class="col-sm-4 mb-3">
+        <div class="card h-90 mb-3 bg-light shadow-lg" style="width:18rem;">
+            <img class="card-img-top img-fluid" src="@Html.DisplayFor(modelItem => item.ImageUrl)" alt="img1"/>
+            <div class="card-body">
+                <h4 class="card-title">
+                    @Html.DisplayFor(modelItem => item.Show)
+                </h4>
+            </div>
+            <p class="card-text">
+                &nbsp;&nbsp;&nbsp;<b>
+                @Html.DisplayFor(modelItem => item.Genres) |
+                @Html.DisplayFor(modelItem => item.ShowLanguage)</b>
+            </p>
+            <div class="card-footer text-muted" style="background-color: #d9c2ba;">
+                @Html.ActionLink("Details", "TvShowDetails", new { id=item.ShowId}) |
+                @Html.ActionLink("Delete", "DeleteTvShowDetails", new { id=item.ShowId })
+            </div>
+        </div>
+        </div>
+    }
+</div>

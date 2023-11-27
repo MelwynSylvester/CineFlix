@@ -1,0 +1,75 @@
+@model User
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor httpContextaccessor
+
+@{
+    ViewData["Title"] = "Login";
+}
+<div id="login_container">
+    <form asp-action="CheckRole" asp-controller="Login"  method="Get">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                &nbsp;
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                </div>
+                <div class="col-md-9">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-9 text-center">
+                                <h2>Log in</h2>
+                            </div>
+                        </div>
+                        <div class="row">
+                            &nbsp;
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3 ">
+                            <label for="emailId" class="label">Email</label>
+                            </div>
+                            <div class="col-md-6">
+                            <input type="email" class="field" name="emailId" 
+                            pattern="[a-z0-9._%+\-]+@@[a-z0-9.\-]+\.[a-z]{2,}$" required/> 
+                            </div>                    
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col-md-3 text-right">
+                                <label for="userpassword" class="label">Password</label>
+                            </div>
+                            <div class="col-md-6"> 
+                                <input type="password" class="field" id="userpassword" name="userpassword" required/>
+                                
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="submit" class="btn" value="Login" id="btnLogin" />
+                                <input type="checkbox" name="RememberMe" /> Remember Me  
+                            </div>
+                        </div>
+
+                        @if (TempData["Message"] != null)
+                        {
+                            <span style="color:red;">@TempData["Message"].ToString()</span>
+                        }
+
+                        <div class="row">
+                            &nbsp;
+                        </div>
+                        <div class="row">
+                                <h4>Not a member?  <a asp-area="" asp-controller="Register" asp-action="Index">Sign up now</a></h4>
+                        </div>
+                        <div class="row">
+                            &nbsp;
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+</div>
+

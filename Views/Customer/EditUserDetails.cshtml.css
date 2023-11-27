@@ -1,0 +1,31 @@
+#editUserProfile_container {
+    margin-top:50px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 600px;
+    border:1px solid black;
+    display:block;
+}
+
+.btn {
+    background-color: #86E3E7;
+    color: white;
+    padding: 14px 20px;
+    border-radius: 5px;
+    margin: 7px 0;
+    width: 170%;
+    font-size: 18px;
+    align-items: center;
+  }
+
+  .btn:hover {
+    opacity: 1;
+    cursor: pointer;
+    background-color: #255faa;
+    transition-timing-function: ease-in-out;
+
+  /* Quick on the way out */
+  transition: 1s;
+    color: #86E3E7;
+    font-weight: 400px;
+}

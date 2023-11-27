@@ -1,0 +1,69 @@
+@model CineFlix.Models.Tvshow
+
+@{
+    ViewData["Title"] = "AddTvShowDetails";
+    Layout = "_LayoutAdmin";
+}
+
+<h2 class="text-center">Add TvShow Details</h2>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddTvShowDetails">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="UserId" class="control-label"></label>
+                <input asp-for="UserId" class="form-control" />
+                <span asp-validation-for="UserId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Show" class="control-label"></label>
+                <input asp-for="Show" class="form-control" />
+                <span asp-validation-for="Show" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ShowDesc" class="control-label"></label>
+                <input asp-for="ShowDesc" class="form-control" />
+                <span asp-validation-for="ShowDesc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Genres" class="control-label"></label>
+                <input asp-for="Genres" class="form-control" />
+                <span asp-validation-for="Genres" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImageUrl" class="control-label"></label>
+                <input asp-for="ImageUrl" class="form-control" />
+                <span asp-validation-for="ImageUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VideoUrl" class="control-label"></label>
+                <input asp-for="VideoUrl" class="form-control" />
+                <span asp-validation-for="VideoUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ShowLanguage" class="control-label"></label>
+                <input asp-for="ShowLanguage" class="form-control" />
+                <span asp-validation-for="ShowLanguage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EpisodeCount" class="control-label"></label>
+                <input asp-for="EpisodeCount" class="form-control" />
+                <span asp-validation-for="EpisodeCount" class="text-danger"></span>
+            </div>
+            <br>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<br>
+<div>
+    <a asp-action="TvShows" asp-controller="Admin">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
